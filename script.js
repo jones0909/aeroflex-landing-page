@@ -1,3 +1,36 @@
+async function loadCmsContent() {
+  try {
+    const response = await fetch("/content/site.json", { cache: "no-store" });
+    if (!response.ok) return;
+    const content = await response.json();
+
+    document.title = content.seo_title || document.title;
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta && content.seo_description) {
+      descriptionMeta.setAttribute("content", content.seo_description);
+    }
+
+    document.querySelectorAll("[data-cms]").forEach((element) => {
+      const value = content[element.dataset.cms];
+      if (typeof value === "string") element.textContent = value;
+    });
+
+    document.querySelectorAll("[data-cms-src]").forEach((element) => {
+      const value = content[element.dataset.cmsSrc];
+      if (typeof value === "string" && value) element.setAttribute("src", value);
+    });
+
+    document.querySelectorAll("[data-cms-email]").forEach((element) => {
+      const value = content[element.dataset.cmsEmail];
+      if (typeof value === "string" && value) element.setAttribute("href", `mailto:${value}`);
+    });
+  } catch (error) {
+    console.warn("Using built-in AeroFlex content because CMS content could not be loaded.", error);
+  }
+}
+
+loadCmsContent();
+
 const fitModes = [
   {
     mode: "FLOW",

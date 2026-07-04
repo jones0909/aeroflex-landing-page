@@ -1,0 +1,142 @@
+media:
+  input: assets
+  output: /assets
+
+content:
+  - name: website
+    label: AeroFlex Website
+    type: file
+    path: content/site.json
+    fields:
+      - name: seo_title
+        label: Browser title
+        type: string
+      - name: seo_description
+        label: Search description
+        type: text
+      - name: announcement
+        label: Announcement bar
+        type: string
+      - name: hero_eyebrow
+        label: Hero small heading
+        type: string
+      - name: hero_title
+        label: Hero title
+        type: string
+      - name: hero_accent
+        label: Hero italic title
+        type: string
+      - name: hero_intro
+        label: Hero description
+        type: text
+      - name: hero_button
+        label: Hero button
+        type: string
+      - name: hero_image
+        label: Hero image
+        type: image
+      - name: spec_weight
+        label: Weight
+        type: string
+      - name: spec_drop
+        label: Heel-to-toe drop
+        type: string
+      - name: spec_support
+        label: Support
+        type: string
+      - name: spec_surface
+        label: Surface
+        type: string
+      - name: spec_fit
+        label: Fit system
+        type: string
+      - name: collection_eyebrow
+        label: Collection small heading
+        type: string
+      - name: collection_title
+        label: Collection title
+        type: string
+      - name: collection_description
+        label: Collection description
+        type: text
+      - name: product_1_badge
+        label: Product 1 badge
+        type: string
+      - name: product_1_name
+        label: Product 1 name
+        type: string
+      - name: product_1_color
+        label: Product 1 colour
+        type: string
+      - name: product_1_price
+        label: Product 1 price
+        type: string
+      - name: product_1_image
+        label: Product 1 image
+        type: image
+      - name: product_2_badge
+        label: Product 2 badge
+        type: string
+      - name: product_2_name
+        label: Product 2 name
+        type: string
+      - name: product_2_color
+        label: Product 2 colour
+        type: string
+      - name: product_2_price
+        label: Product 2 price
+        type: string
+      - name: product_2_image
+        label: Product 2 image
+        type: image
+      - name: product_3_badge
+        label: Product 3 badge
+        type: string
+      - name: product_3_name
+        label: Product 3 name
+        type: string
+      - name: product_3_color
+        label: Product 3 colour
+        type: string
+      - name: product_3_price
+        label: Product 3 price
+        type: string
+      - name: product_3_image
+        label: Product 3 image
+        type: image
+      - name: technology_eyebrow
+        label: Technology small heading
+        type: string
+      - name: technology_title
+        label: Technology title
+        type: string
+      - name: technology_accent
+        label: Technology italic title
+        type: string
+      - name: technology_lead
+        label: Technology introduction
+        type: text
+      - name: technology_body
+        label: Technology description
+        type: text
+      - name: release_eyebrow
+        label: Release small heading
+        type: string
+      - name: release_title
+        label: Release title
+        type: string
+      - name: release_accent
+        label: Release italic title
+        type: string
+      - name: release_description
+        label: Release description
+        type: text
+      - name: footer_location
+        label: Footer location
+        type: string
+      - name: contact_email
+        label: Contact email
+        type: string
+      - name: copyright
+        label: Copyright
+        type: string
