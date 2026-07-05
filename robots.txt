@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aeroflex-landing-page.pages.dev/sitemap.xml
