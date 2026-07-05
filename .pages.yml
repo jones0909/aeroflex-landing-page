@@ -119,6 +119,21 @@ content:
       - name: technology_body
         label: Technology description
         type: text
+      - name: diagram_eyebrow
+        label: Material diagram small heading
+        type: string
+      - name: diagram_title
+        label: Material diagram title
+        type: string
+      - name: diagram_accent
+        label: Material diagram italic title
+        type: string
+      - name: diagram_description
+        label: Material diagram description
+        type: text
+      - name: diagram_image
+        label: Material diagram image
+        type: image
       - name: release_eyebrow
         label: Release small heading
         type: string
