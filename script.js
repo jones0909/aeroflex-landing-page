@@ -89,6 +89,55 @@ document.querySelectorAll(".desktop-nav a").forEach((link) => {
   });
 });
 
+const viewerStage = document.querySelector(".viewer-stage");
+const viewerProduct = document.querySelector(".viewer-product");
+const viewerStatus = document.querySelector(".viewer-status");
+const shoeSelectors = document.querySelectorAll(".shoe-selector");
+let viewerDragStart = null;
+
+function setActiveShoe(side) {
+  if (!viewerStage || (side !== "left" && side !== "right")) return;
+  viewerStage.dataset.activeShoe = side;
+  viewerStatus.textContent = `Viewing ${side} shoe`;
+  viewerProduct.setAttribute(
+    "aria-label",
+    `Interactive AeroFlex ${side} shoe view. Drag horizontally or use the controls to change sides.`
+  );
+  shoeSelectors.forEach((button) => {
+    const active = button.dataset.shoe === side;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+shoeSelectors.forEach((button) => {
+  button.addEventListener("click", () => setActiveShoe(button.dataset.shoe));
+});
+
+if (viewerStage) {
+  viewerStage.addEventListener("pointerdown", (event) => {
+    if (event.target.closest(".shoe-selector")) return;
+    viewerDragStart = event.clientX;
+    viewerStage.classList.add("is-dragging");
+    viewerStage.setPointerCapture(event.pointerId);
+  });
+  viewerStage.addEventListener("pointerup", (event) => {
+    if (viewerDragStart === null) return;
+    const distance = event.clientX - viewerDragStart;
+    if (Math.abs(distance) > 35) setActiveShoe(distance > 0 ? "left" : "right");
+    viewerDragStart = null;
+    viewerStage.classList.remove("is-dragging");
+  });
+  viewerStage.addEventListener("pointercancel", () => {
+    viewerDragStart = null;
+    viewerStage.classList.remove("is-dragging");
+  });
+  viewerProduct.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") setActiveShoe("left");
+    if (event.key === "ArrowRight") setActiveShoe("right");
+  });
+}
+
 const signupForm = document.querySelector("#signup-form");
 const signupMessage = document.querySelector(".form-message");
 signupForm.addEventListener("submit", (event) => {
