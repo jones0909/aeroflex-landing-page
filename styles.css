@@ -454,7 +454,10 @@ footer > p { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; l
   .site-header.menu-open { position: fixed; left: 0; right: 0; top: 33px; background: var(--paper); }
   .site-header.menu-open .desktop-nav { display: flex; position: absolute; top: 64px; left: 0; right: 0; padding: 35px 5vw; background: var(--paper); flex-direction: column; border-top: 1px solid var(--line); }
   .hero, .hero > img { min-height: 720px; height: calc(100svh - 98px); }
-  .hero > img { object-position: 58% center; }
+  .hero > img {
+    object-fit: contain;
+    object-position: center 18%;
+  }
   .hero-overlay { background: linear-gradient(0deg, rgba(16,17,15,.75), transparent 90%); }
   .hero-copy { left: 6vw; right: 6vw; top: auto; bottom: 80px; transform: none; }
   h1 { font-size: clamp(68px, 20vw, 105px); }
@@ -470,6 +473,13 @@ footer > p { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; l
   .shop-heading h2 { font-size: 17vw; }
   .product-grid { grid-template-columns: repeat(3, 91vw); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; margin-right: -4vw; }
   .product-card { scroll-snap-align: start; }
+  .product-image { aspect-ratio: 1.45; }
+  .product-image img {
+    object-fit: contain;
+    object-position: center;
+    transform: scale(.96);
+  }
+  .product-image:hover img { transform: scale(1); }
   .manifesto { padding: 95px 6vw 85px; }
   .manifesto h2, .section-heading h2, .release h2 { font-size: 16vw; }
   .manifesto-grid { padding: 0; grid-template-columns: 1fr; gap: 28px; margin-top: 55px; }
